@@ -7,6 +7,7 @@ class G5::Jobbing::Job
   attribute :created_at, DateTime
   attribute :updated_at, DateTime
   attribute :integration_setting_uid, String
+  attribute :integration_setting_urn, String
   attribute :message, String
 
   def logs_url

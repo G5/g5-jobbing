@@ -1,9 +1,9 @@
 class G5::Jobbing::JobRetriever
   include G5::Jobbing::AccessToken
-  attr_accessor :locations_integration_setting_uids
+  attr_accessor :location_setting_urns
 
   def initialize(params={})
-    self.locations_integration_setting_uids = params[:locations_integration_setting_uids]
+    self.location_setting_urns = params[:location_setting_urns]
   end
 
   def perform
@@ -15,10 +15,10 @@ class G5::Jobbing::JobRetriever
   end
 
   def jobs_url_for_locations
-    "#{ENV['JOBS_URL']}/api/v1/jobs?current=true&integration_setting_uid=#{CGI.escape(locations_as_parameter)}"
+    "#{ENV['JOBS_URL']}/api/v1/jobs?current=true&integration_setting_urn=#{CGI.escape(locations_as_parameter)}"
   end
 
   def locations_as_parameter
-    "[#{self.locations_integration_setting_uids.join(',')}]"
+    "[#{self.location_setting_urns.join(',')}]"
   end
 end

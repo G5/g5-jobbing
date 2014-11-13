@@ -1,10 +1,10 @@
 require 'spec_helper'
 
 describe G5::Jobbing::JobRetriever do
-  let!(:locations_integration_setting_uid_1) { 'uid1' }
-  let!(:locations_integration_setting_uid_2) { 'uid2' }
+  let!(:locations_integration_setting_urn_1) { 'urn1' }
+  let!(:locations_integration_setting_urn_2) { 'urn2' }
 
-  subject { G5::Jobbing::JobRetriever.new(locations_integration_setting_uids: [locations_integration_setting_uid_1, locations_integration_setting_uid_2]) }
+  subject { G5::Jobbing::JobRetriever.new(location_setting_urns: [locations_integration_setting_urn_1, locations_integration_setting_urn_2]) }
 
   describe :perform do
     let(:body) { fixture('jobs.json') }
@@ -25,12 +25,12 @@ describe G5::Jobbing::JobRetriever do
     end
   end
 
-  its (:locations_as_parameter) { is_expected.to eq("[#{locations_integration_setting_uid_1},#{locations_integration_setting_uid_2}]") }
+  its (:locations_as_parameter) { is_expected.to eq("[#{locations_integration_setting_urn_1},#{locations_integration_setting_urn_2}]") }
 
   describe :jobs_url_for_locations do
     it 'filters by current and locations_integration_setting UIDs' do
       expect(subject).to receive(:locations_as_parameter).and_return('loc_param')
-      expect(subject.jobs_url_for_locations).to match(/\/api\/v1\/jobs\?current=true&integration_setting_uid=loc_param/)
+      expect(subject.jobs_url_for_locations).to match(/\/api\/v1\/jobs\?current=true&integration_setting_urn=loc_param/)
     end
   end
 end

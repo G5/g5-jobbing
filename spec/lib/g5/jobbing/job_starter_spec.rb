@@ -1,9 +1,9 @@
 require 'spec_helper'
 
 describe G5::Jobbing::JobStarter do
-  let(:locations_integration_setting_uid) { 'a-uid' }
+  let(:location_setting_urn) { 'a-urn' }
   let(:token) { 'the toke' }
-  subject { G5::Jobbing::JobStarter.new(locations_integration_setting_uid: locations_integration_setting_uid) }
+  subject { G5::Jobbing::JobStarter.new(location_setting_urn: location_setting_urn) }
 
   describe :perform do
     before do
@@ -24,5 +24,5 @@ describe G5::Jobbing::JobStarter do
     end
   end
 
-  its(:start_job_url) { is_expected.to match(/\/api\/v1\/job_runners\?integration_setting_uid=/) }
+  its(:start_job_url) { is_expected.to match(/\/api\/v1\/job_runners\?integration_setting_urn=#{location_setting_urn}/) }
 end

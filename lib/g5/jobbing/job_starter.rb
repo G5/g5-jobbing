@@ -1,9 +1,9 @@
 class G5::Jobbing::JobStarter
   include G5::Jobbing::AccessToken
-  attr_accessor :locations_integration_setting_uid
+  attr_accessor :location_setting_urn
 
   def initialize(params={})
-    self.locations_integration_setting_uid = params[:locations_integration_setting_uid]
+    self.location_setting_urn = params[:location_setting_urn]
   end
 
   def perform
@@ -15,6 +15,6 @@ class G5::Jobbing::JobStarter
   end
 
   def start_job_url
-    "#{ENV['JOBS_URL']}/api/v1/job_runners?integration_setting_uid=#{CGI.escape(self.locations_integration_setting_uid)}"
+    "#{ENV['JOBS_URL']}/api/v1/job_runners?integration_setting_urn=#{self.location_setting_urn}"
   end
 end
