@@ -8,7 +8,6 @@ describe G5::Jobbing::JobRetriever do
 
   describe :perform do
     let(:body) { fixture('jobs.json') }
-    let(:body_hash) { JSON.parse(body)[:jobs] }
     let(:token) { 'the toke' }
     before do
       expect(G5AuthenticationClient::Client).to receive(:new).and_return(double(:token, get_access_token: token))

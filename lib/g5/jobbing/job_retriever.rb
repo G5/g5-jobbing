@@ -7,9 +7,7 @@ class G5::Jobbing::JobRetriever
   end
 
   def perform
-    response = fetch_get jobs_url_for_locations
-
-    response.collect { |job_hash| G5::Jobbing::Job.new(job_hash) }
+    fetch_get jobs_url_for_locations
   end
 
   def jobs_url_for_locations

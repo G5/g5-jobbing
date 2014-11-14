@@ -6,7 +6,8 @@ module G5::Jobbing::JobFetcher
                             {query:   {access_token: get_access_token},
                              headers: {'Content-Type' => 'application/json', 'Accept' => 'application/json'}}
     )
-    JSON.parse(response.body)['jobs']
+    job_hashes = JSON.parse(response.body)['jobs']
+    job_hashes.collect { |job_hash| G5::Jobbing::Job.new(job_hash) }
   end
 
   def jobs_base_url
