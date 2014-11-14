@@ -22,6 +22,8 @@ describe G5::Jobbing::JobRetriever do
       expect(result.length).to eq(2)
       expect(result.all? { |job| G5::Jobbing::Job == job.class }).to be_truthy
       expect(result.collect(&:integration_setting_uid)).to eq(%w(http://localhost/clients/g5-c-6i4h3un-ethan-bode/locations/g5-cl-6i4h3uo-zoe-krajcik/locations_integration_settings/g5-lis-6i4h3uo http://localhost/clients/g5-c-6i4h3un-ethan-bode/locations/g5-cl-6i4h3un-retha-hane/locations_integration_settings/g5-lis-6i4h3un))
+      expect(result.collect(&:error_state)).to eq([true, false])
+      expect(result.collect(&:success_state)).to eq([false, true])
     end
   end
 

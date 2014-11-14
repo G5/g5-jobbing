@@ -9,6 +9,8 @@ class G5::Jobbing::Job
   attribute :integration_setting_uid, String
   attribute :integration_setting_urn, String
   attribute :message, String
+  attribute :error_state, Boolean
+  attribute :success_state, Boolean
 
   def logs_url
     return 'ENV[LOGS_BY_JOB_URL] not set!' if logs_by_job_url.blank?
