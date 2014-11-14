@@ -12,3 +12,5 @@
 *.o
 *.a
 mkmf.log
+
+g5-jobbing-*.gem
