@@ -11,6 +11,8 @@ module G5
 end
 
 require 'g5/jobbing/access_token'
+require 'g5/jobbing/job_fetcher'
 require 'g5/jobbing/job'
 require 'g5/jobbing/job_retriever'
 require 'g5/jobbing/job_starter'
+require 'g5/jobbing/job_stat_retriever'
