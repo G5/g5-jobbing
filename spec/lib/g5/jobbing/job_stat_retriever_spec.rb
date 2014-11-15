@@ -16,7 +16,7 @@ describe G5::Jobbing::JobStatRetriever do
                                               headers: {'Content-Type' => 'application/json', 'Accept' => 'application/json'}}).
                               and_return(double(:response, body: body))
     end
-    let(:roll_up_by) { {foo: ['g5-job-1t1slmdz', 'g5-job-1t1slkm2'], no_matches: ['madeup'], bar: ['g5-job-1t1schlp', 'g5-job-1t1onnnk', 'g5-job-1t1skxui']} }
+    let(:roll_up_by) { {foo: %w(g5-lis-1t0thzui g5-lis-1t0thj3p), no_matches: ['madeup'], bar: %w(g5-lis-1 g5-lis-1t0n85r2 g5-lis-1t0tf3u0)} }
 
     subject { job_stat_retriever.perform }
 

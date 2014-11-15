@@ -23,7 +23,7 @@ class G5::Jobbing::JobStatRetriever
   end
 
   def find_matching_job_stat(job)
-    parent = self.rollup_by.detect { |key_values| key_values.last.include?(job.urn) }.try(:first)
+    parent = self.rollup_by.detect { |key_values| key_values.last.include?(job.integration_setting_urn) }.try(:first)
     return unless parent
 
     job_stat_key = @job_stats.keys.detect { |js_key| parent == js_key }
