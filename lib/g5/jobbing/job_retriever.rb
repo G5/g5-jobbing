@@ -11,7 +11,7 @@ class G5::Jobbing::JobRetriever
   end
 
   def jobs_url_for_locations
-    "#{jobs_base_url}?current=true&integration_setting_urn=#{locations_as_parameter}"
+    "#{jobs_base_url}?current=true&location_setting_urn=#{locations_as_parameter}"
   end
 
   def locations_as_parameter

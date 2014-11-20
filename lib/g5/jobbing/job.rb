@@ -6,8 +6,8 @@ class G5::Jobbing::Job
   attribute :state, String
   attribute :created_at, DateTime
   attribute :updated_at, DateTime
-  attribute :integration_setting_uid, String
-  attribute :integration_setting_urn, String
+  attribute :location_setting_uid, String
+  attribute :location_setting_urn, String
   attribute :message, String
   attribute :error_state, Boolean
   attribute :success_state, Boolean

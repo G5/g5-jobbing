@@ -15,6 +15,6 @@ class G5::Jobbing::JobStarter
   end
 
   def start_job_url
-    "#{ENV['JOBS_URL']}/api/v1/job_runners?integration_setting_urn=#{self.location_setting_urn}"
+    "#{ENV['JOBS_URL']}/api/v1/job_runners?location_setting_urn=#{self.location_setting_urn}"
   end
 end

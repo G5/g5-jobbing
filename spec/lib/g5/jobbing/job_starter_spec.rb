@@ -24,5 +24,5 @@ describe G5::Jobbing::JobStarter do
     end
   end
 
-  its(:start_job_url) { is_expected.to match(/\/api\/v1\/job_runners\?integration_setting_urn=#{location_setting_urn}/) }
+  its(:start_job_url) { is_expected.to match(/\/api\/v1\/job_runners\?location_setting_urn=#{location_setting_urn}/) }
 end
