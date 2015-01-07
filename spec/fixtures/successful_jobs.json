@@ -1,0 +1,26 @@
+{"jobs": [
+    {
+        "uid": "http://localhost:5778/api/v1/jobs/g5-job-6i4h4jo",
+        "urn": "g5-job-6i4h4jo",
+        "location_setting_urn": "int-6i4h4",
+        "state": "started",
+        "error_state": false,
+        "success_state": true,
+        "created_at": "2014-11-10T14:57:49.216-08:00",
+        "updated_at": "2014-11-10T15:12:23.111-08:00",
+        "location_setting_uid": "http://localhost/clients/g5-c-6i4h3un-ethan-bode/locations/g5-cl-6i4h3uo-zoe-krajcik/locations_integration_settings/g5-lis-6i4h3uo",
+        "message": null
+    },
+    {
+        "uid": "http://localhost:5778/api/v1/jobs/g5-job-6i4h4bb",
+        "urn": "g5-job-6i4h4bb",
+        "location_setting_urn": "int-622h4",
+        "state": "started",
+        "error_state": false,
+        "success_state": true,
+        "created_at": "2014-11-10T14:57:19.546-08:00",
+        "updated_at": "2014-11-10T15:12:23.103-08:00",
+        "location_setting_uid": "http://localhost/clients/g5-c-6i4h3un-ethan-bode/locations/g5-cl-6i4h3un-retha-hane/locations_integration_settings/g5-lis-6i4h3un",
+        "message": null
+    }
+]}
