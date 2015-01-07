@@ -1,9 +1,9 @@
 module G5::Jobbing::JobFetcher
   include G5::Jobbing::AccessToken
 
-  def fetch_get(url)
+  def fetch_get(url, query_options={})
     response = HTTParty.get(url,
-                            {query:   {access_token: get_access_token},
+                            {query:   query_options.merge({access_token: get_access_token}),
                              headers: {'Content-Type' => 'application/json', 'Accept' => 'application/json'}}
     )
     job_hashes = JSON.parse(response.body)['jobs']

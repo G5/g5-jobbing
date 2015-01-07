@@ -41,15 +41,22 @@ describe G5::Jobbing::JobRetriever do
     let(:body) { fixture('successful_jobs.json') }
     let(:token) { 'the token' }
     before do
+      query_params = {
+        state: "completed_with_no_errors",
+        location_setting_urn: "loc_urn",
+        distinct_attr: "location_setting_urn",
+        access_token: token,
+      }
+
       expect(G5AuthenticationClient::Client).to receive(:new).and_return(double(:token, get_access_token: token))
       allow(subject).to receive(:jobs_base_url).and_return('api/v1/jobs')
       allow(subject).to receive(:locations_as_parameter).and_return('loc_urn')
       expect(HTTParty).
         to receive(:get).
         with(
-          'api/v1/jobs?state=completed_with_no_errors&location_setting_urn=loc_urn&distinct_attr=location_setting_urn',
+          'api/v1/jobs',
           {
-            query: {access_token: token},
+            query: query_params,
             headers: {'Content-Type' => 'application/json', 'Accept' => 'application/json'}
           }
         ).and_return(double(:response, body: body))

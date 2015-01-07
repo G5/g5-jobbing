@@ -16,7 +16,13 @@ class G5::Jobbing::JobRetriever
   end
 
   def latest_successful
-    fetch_get "#{jobs_base_url}?state=completed_with_no_errors&location_setting_urn=#{locations_as_parameter}&distinct_attr=location_setting_urn"
+    query_options = {
+      state: "completed_with_no_errors",
+      location_setting_urn: locations_as_parameter,
+      distinct_attr: "location_setting_urn"
+    }
+
+    fetch_get(jobs_base_url, query_options)
   end
 
   def jobs_url_for_locations
