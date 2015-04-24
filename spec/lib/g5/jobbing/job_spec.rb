@@ -11,6 +11,7 @@ describe G5::Jobbing::Job do
   let(:message) { 'message' }
   let(:created_at) { DateTime.new(2012, 11, 11) }
   let(:updated_at) { DateTime.new(2013, 10, 10) }
+  let(:location_jobs_failing) { false }
 
   subject { G5::Jobbing::Job.new(uid:                     uid, urn: urn, state: state,
                                  location_setting_uid: location_setting_uid,
@@ -29,6 +30,7 @@ describe G5::Jobbing::Job do
   its(:message) { is_expected.to eq(message) }
   its(:created_at) { is_expected.to eq(created_at) }
   its(:updated_at) { is_expected.to eq(updated_at) }
+  its(:location_jobs_failing) { is_expected.to eq(location_jobs_failing) }
 
   describe 'logs_url' do
     subject { G5::Jobbing::Job.new(urn: 3) }
