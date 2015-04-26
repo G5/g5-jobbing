@@ -11,6 +11,7 @@ class G5::Jobbing::Job
   attribute :message, String
   attribute :error_state, Boolean
   attribute :success_state, Boolean
+  attribute :location_jobs_failing, Boolean, default: false
 
   def logs_url
     return 'ENV[LOGS_BY_JOB_URL] not set!' if logs_by_job_url.blank?
