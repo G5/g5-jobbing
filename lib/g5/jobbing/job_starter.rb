@@ -1,16 +1,21 @@
 class G5::Jobbing::JobStarter
-  include G5::Jobbing::AccessToken
-  attr_accessor :location_setting_urn
+  attr_accessor :location_setting_urn, :access_token
 
   def initialize(params={})
     self.location_setting_urn = params[:location_setting_urn]
+    self.access_token = params[:access_token]
   end
 
   def perform
     response = HTTParty.post(start_job_url,
-                             {query:   {access_token: get_access_token},
-                              headers: {'Content-Type' => 'application/json', 'Accept' => 'application/json'}}
-    )
+                 {
+                   query: { access_token: access_token },
+                   headers: {
+                     'Content-Type' => 'application/json',
+                     'Accept' => 'application/json'
+                   }
+                 }
+               )
     201 == response.code
   end
 
